@@ -1,27 +1,27 @@
-import express from 'express' // const express = require("express");
-import { randomBytes } from 'crypto'
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser';
+import express from 'express'; // const express = require("express");
+import { randomBytes } from 'crypto';
 
-const app = express()
-app.use(bodyParser.json())
+const app = express();
+app.use(bodyParser.json());
 
-const products = {}
+const products = {};
 
 app.get('/products', (req, res) => {
-    res.send(products)
-})
+	res.send(products);
+});
 
 app.post('/products', (req, res) => {
-    const id = randomBytes(4).toString('hex')
+	const id = randomBytes(4).toString('hex');
 
-    const { name } = req.body
-    products[id] = {
-        id,
-        name
-    }
+	const { name } = req.body;
+	products[id] = {
+		id,
+		name
+	};
 
-    res.status(201).send(products[id])
-})
+	res.status(201).send(products[id]);
+});
 
 // Esta instruccion expone este archivo como: app
-export default app
+export default app;
