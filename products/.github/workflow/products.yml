@@ -3,7 +3,7 @@ name: products-ci
 on:
   push:
     branches:
-      - "main"
+      - "master"
       - "feat/products-pipeline"
 
 jobs:
